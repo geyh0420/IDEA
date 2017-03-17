@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/thriftJson.iml" filepath="$PROJECT_DIR$/thriftJson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thriftJsonApi/thriftJsonApi.iml" filepath="$PROJECT_DIR$/thriftJsonApi/thriftJsonApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thriftJsonClient/thriftJsonClient.iml" filepath="$PROJECT_DIR$/thriftJsonClient/thriftJsonClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thriftJsonServer/thriftJsonServer.iml" filepath="$PROJECT_DIR$/thriftJsonServer/thriftJsonServer.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="thriftJsonClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/thriftJsonClient_jar</output-path>
+    <root id="archive" name="thriftJsonClient.jar">
+      <element id="module-output" name="thriftJsonClient" />
+      <element id="module-output" name="thriftJsonApi" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/org/apache/httpcomponents/httpcore/4.4.1/httpcore-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/org/slf4j/slf4j-log4j12/1.5.8/slf4j-log4j12-1.5.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/org/apache/httpcomponents/httpclient/4.4.1/httpclient-4.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/org/apache/thrift/libthrift/0.9.3/libthrift-0.9.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="E:/apache-maven-3.3.9/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

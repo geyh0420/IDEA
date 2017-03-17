@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="thriftJsonApi" />
+        <module name="thriftJsonClient" />
+        <module name="thriftJsonServer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="thriftJson" target="1.5" />
+      <module name="thriftJsonApi" target="1.6" />
+      <module name="thriftJsonClient" target="1.5" />
+      <module name="thriftJsonServer" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
