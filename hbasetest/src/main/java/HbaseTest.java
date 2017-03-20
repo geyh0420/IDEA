@@ -35,11 +35,11 @@ public class HbaseTest {
     }
 
     public static void main(String[] args) {
-         createTable("wujintao");
-         insertData("wujintao");
-         QueryAll("wujintao");
-         QueryByCondition1("wujintao");
-         QueryByCondition2("wujintao");
+        createTable("wujintao");
+        insertData("wujintao");
+        QueryAll("wujintao");
+        QueryByCondition1("wujintao");
+        QueryByCondition2("wujintao");
         QueryByCondition3("wujintao");
         deleteRow("wujintao","abcdef");
         deleteByCondition("wujintao","abcdef");
@@ -75,13 +75,13 @@ public class HbaseTest {
     private static void insertData(String tableName) {
         System.out.println("start insert data ......");
         HTablePool pool = new HTablePool(configuration, 1000);
-        HTable table = (HTable) pool.getTable(tableName);
-        Put put = new Put("112233bbbcccc".getBytes());// 一个PUT代表一行数据，再NEW一个PUT表示第二行数据,每行一个唯一的ROWKEY，此处rowkey为put构造方法中传入的值 
-        put.add("column1".getBytes(), null, "aaa".getBytes());// 本行数据的第一列 
-        put.add("column2".getBytes(), null, "bbb".getBytes());// 本行数据的第三列 
-        put.add("column3".getBytes(), null, "ccc".getBytes());// 本行数据的第三列 
+//        HTable table = (HTable) pool.getTable(tableName);
+        Put put = new Put("112233bbbcccc".getBytes());// 一个PUT代表一行数据，再NEW一个PUT表示第二行数据,每行一个唯一的ROWKEY，此处rowkey为put构造方法中传入的值
+        put.add("column1".getBytes(), null, "aaa".getBytes());// 本行数据的第一列
+        put.add("column2".getBytes(), null, "bbb".getBytes());// 本行数据的第三列
+        put.add("column3".getBytes(), null, "ccc".getBytes());// 本行数据的第三列
         try {
-            table.put(put);
+            pool.getTable(tableName).put(put);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -131,9 +131,9 @@ public class HbaseTest {
 
     private static void QueryAll(String tableName) {
         HTablePool pool = new HTablePool(configuration, 1000);
-        HTable table = (HTable) pool.getTable(tableName);
+//        HTable table = (HTable) pool.getTable(tableName);
         try {
-            ResultScanner rs = table.getScanner(new Scan());
+            ResultScanner rs = pool.getTable(tableName).getScanner(new Scan());
             for (Result r : rs) {
                 System.out.println("获得到rowkey:" + new String(r.getRow()));
                 for (KeyValue keyValue : r.raw()) {
@@ -150,10 +150,10 @@ public class HbaseTest {
     private static void QueryByCondition1(String tableName) {
 
         HTablePool pool = new HTablePool(configuration, 1000);
-        HTable table = (HTable) pool.getTable(tableName);
+//        HTable table = (HTable) pool.getTable(tableName);
         try {
-            Get scan = new Get("abcdef".getBytes());// 根据rowkey查询 
-            Result r = table.get(scan);
+            Get scan = new Get("112233bbbcccc".getBytes());// 根据rowkey查询
+            Result r = pool.getTable(tableName).get(scan);
             System.out.println("获得到rowkey:" + new String(r.getRow()));
             for (KeyValue keyValue : r.raw()) {
                 System.out.println("列：" + new String(keyValue.getFamily())
@@ -169,13 +169,12 @@ public class HbaseTest {
 
         try {
             HTablePool pool = new HTablePool(configuration, 1000);
-            HTable table = (HTable) pool.getTable(tableName);
             Filter filter = new SingleColumnValueFilter(Bytes
                     .toBytes("column1"), null, CompareOp.EQUAL, Bytes
-                    .toBytes("aaa")); // 当列column1的值为aaa时进行查询 
+                    .toBytes("aaa")); // 当列column1的值为aaa时进行查询
             Scan s = new Scan();
             s.setFilter(filter);
-            ResultScanner rs = table.getScanner(s);
+            ResultScanner rs = pool.getTable(tableName).getScanner(s);
             for (Result r : rs) {
                 System.out.println("获得到rowkey:" + new String(r.getRow()));
                 for (KeyValue keyValue : r.raw()) {
@@ -194,7 +193,6 @@ public class HbaseTest {
 
         try {
             HTablePool pool = new HTablePool(configuration, 1000);
-            HTable table = (HTable) pool.getTable(tableName);
 
             List<Filter> filters = new ArrayList<Filter>();
 
@@ -217,7 +215,7 @@ public class HbaseTest {
 
             Scan scan = new Scan();
             scan.setFilter(filterList1);
-            ResultScanner rs = table.getScanner(scan);
+            ResultScanner rs = pool.getTable(tableName).getScanner(scan);
             for (Result r : rs) {
                 System.out.println("获得到rowkey:" + new String(r.getRow()));
                 for (KeyValue keyValue : r.raw()) {
